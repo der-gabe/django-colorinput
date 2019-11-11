@@ -14,7 +14,7 @@ class ColorField(forms.CharField):
     def clean(self, value):
         hex_value = value.lstrip('#')
         rgb_pattern = re.compile('[0-9a-fA-F]{6}')
-        if not rgb_pattern.search(hex_value):
+        if not rgb_pattern.fullmatch(hex_value):
             raise ValidationError('Invalid RGB value: {}'.format(value))
         return hex_value
 
