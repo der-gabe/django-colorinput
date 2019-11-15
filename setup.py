@@ -23,7 +23,7 @@ setuptools.setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.5',
 )
 
 # Run `python setup.py sdist bdist_wheel` to generate distribution archives.
