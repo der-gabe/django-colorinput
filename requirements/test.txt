@@ -1,2 +1,4 @@
 django
 pytest
+pytest-django
+pytest-pythonpath
