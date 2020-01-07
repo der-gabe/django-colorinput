@@ -5,7 +5,7 @@ with open('README.rst', 'r') as fh:
 
 setuptools.setup(
     name='django-colorinput',
-    version='0.1',
+    version='0.2',
     author='Gabriel Niebler',
     author_email='gabriel.niebler@gmail.com',
     description='Color fields for Django models and forms '
@@ -14,6 +14,9 @@ setuptools.setup(
     long_description_content_type='text/x-rst',
     url='https://github.com/der-gabe/django-colorinput',
     packages=setuptools.find_packages(),
+    package_data={
+        'colorinput': ['templates/colorinput/widgets/colorinput.html'],
+    },
     classifiers=[
         'Framework :: Django',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
@@ -22,3 +25,5 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
 )
+
+# Run `python setup.py sdist bdist_wheel` to generate distribution archives.
