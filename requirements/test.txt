@@ -1,4 +1,5 @@
 django
+hypothesis
 pytest
 pytest-django
 pytest-pythonpath

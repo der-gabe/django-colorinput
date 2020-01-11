@@ -11,3 +11,5 @@ django_colorinput.egg-info/
 .python-version
 # tox
 .tox
+# hypothesis
+.hypothesis
