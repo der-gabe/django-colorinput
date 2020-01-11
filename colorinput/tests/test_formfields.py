@@ -8,13 +8,15 @@ from ..forms.fields import ColorField
 HEX_ALPHABET = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}
 
 
-def test_formfield_clean():
+@given(value=text(alphabet=HEX_ALPHABET, min_size=6, max_size=8))
+@example('0d0d0d')
+def test_formfield_clean(value):
     formfield = ColorField()
-    cleaned_value = formfield.clean('#abcdef')
-    assert cleaned_value == 'abcdef'
+    cleaned_value = formfield.clean('#' + value)
+    assert cleaned_value == value
 
 @given(value=text(alphabet=HEX_ALPHABET, min_size=6, max_size=6))
-@example('0d0d0d0')
+@example('0d0d0d')
 def test_formfield_prepare_value(value):
     formfield = ColorField()
     prepared_value = formfield.prepare_value(value)
