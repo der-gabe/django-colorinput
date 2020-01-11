@@ -1,6 +1,8 @@
+from django.core.exceptions import ValidationError
 from django.forms import Form
 from hypothesis import example, given
 from hypothesis.strategies import text
+import pytest
 
 from ..forms.fields import ColorField
 
@@ -8,9 +10,15 @@ from ..forms.fields import ColorField
 HEX_ALPHABET = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}
 
 
+@given(value=text())
+def test_formfield_clean_error(value):
+    formfield = ColorField()
+    with pytest.raises(ValidationError):
+        formfield.clean(value)
+
 @given(value=text(alphabet=HEX_ALPHABET, min_size=6, max_size=8))
 @example('0d0d0d')
-def test_formfield_clean(value):
+def test_formfield_clean_success(value):
     formfield = ColorField()
     cleaned_value = formfield.clean('#' + value)
     assert cleaned_value == value
