@@ -11,12 +11,14 @@ HEX_ALPHABET = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c',
 
 
 @given(value=text())
+@example('d0d0d0d0')
+@example('00000000')
 def test_formfield_clean_error(value):
     formfield = ColorField()
     with pytest.raises(ValidationError):
         formfield.clean(value)
 
-@given(value=text(alphabet=HEX_ALPHABET, min_size=6, max_size=8))
+@given(value=text(alphabet=HEX_ALPHABET, min_size=6, max_size=6))
 @example('d0d0d0')
 def test_formfield_clean_success(value):
     formfield = ColorField()
