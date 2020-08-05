@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 from django.core.exceptions import ValidationError
 from django.forms import Form
+from django.test import SimpleTestCase
 from hypothesis import example, given
 from hypothesis.strategies import text
 import pytest
@@ -39,6 +41,9 @@ def test_formfield_rendering(value):
         color = ColorField(initial=value)
     test_form = TestForm()
     html_output = test_form.as_p()
-    assert('<input type="color" name="color" '
-           'value="#{}" required id="id_color">'.format(value)
-           in html_output)
+    testcase = SimpleTestCase()
+    testcase.assertInHTML(
+        '<input type="color" name="color" value="#{}" '
+        'required id="id_color">'.format(value),
+        html_output
+    )
