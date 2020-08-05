@@ -13,3 +13,7 @@ django_colorinput.egg-info/
 .tox
 # hypothesis
 .hypothesis
+# coverage
+.coverage
+.coverage.*
+htmlcov/
