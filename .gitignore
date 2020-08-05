@@ -1,6 +1,7 @@
 # EMACS temp. files
 *~
 # Python3 cache stuff
+.cache
 __pycache__/
 # packaging (setuptools etc.)
 build/
@@ -8,3 +9,11 @@ dist/
 django_colorinput.egg-info/
 # pyenv
 .python-version
+# tox
+.tox
+# hypothesis
+.hypothesis
+# coverage
+.coverage
+.coverage.*
+htmlcov/

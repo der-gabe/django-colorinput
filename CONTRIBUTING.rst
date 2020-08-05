@@ -14,6 +14,11 @@ You can contribute in many ways:
 Types of Contributions
 ----------------------
 
+Give Feedback
+~~~~~~~~~~~~~
+
+Are you getting even the tiniest use out of this app? Let me know about it!
+
 Report Bugs
 ~~~~~~~~~~~
 
@@ -23,13 +28,6 @@ If you are reporting a bug, please include:
 
 * Any details about your local setup that might be helpful in troubleshooting.
 * Detailed steps to reproduce the bug.
-
-Fix Bugs or Implement Features
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Look through the GitHub issues. Anything that's not assigned yet is open to
-whoever wants to implement it.
-
 Improve Documentation
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -37,22 +35,25 @@ While django-colorinput is a super simple little Django app, it could probably
 use better documentation, whether in docstrings, in dedicated documentation files
 (outside `README.rst`), or even on the web in blog posts, articles, and such.
 
-Write some Tests
+Write some more tests
 ~~~~~~~~~~~~~~~~
 
-You may have noticed that in its present incarnation the project doesn't even
-have any tests of its own. In part, this is because I'm not too sure how to
-even go about testing a Django app in isolation, i.e. without Django around
-(although I'm sure I could find out - it's bound to be documented
-somewhere). Apart from that, it's such a simple little app that… well, what's
-there to test, really?
+This being such a simple little app you'd be forgiven to think: "Well, what's
+there to test, really?".
 
-Still, code without tests is broken by design, and all that…
+I have tried to implement tests for all relevant functionality, though, since
+code without tests is broken by design, as the saying goes.
 
-Give Feedback
-~~~~~~~~~~~~~
+If you do find something that's untested, please feel free to write some tests
+for it.
 
-Are you getting even the tiniest use out of this app? Let me know about it!
+Fix Bugs or Implement Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Look through the GitHub issues. Anything that's not assigned yet is open to
+whoever wants to implement it.
+
+I'd appreciate some tests to go with any new code, though.
 
 Propose a Feature
 ~~~~~~~~~~~~~~~~~
@@ -76,12 +77,10 @@ Ready to contribute? Here's how to set up `django-colorinput` for local developm
 
     $ git clone git@github.com:your_name_here/django-colorinput.git
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
-
-    $ mkvirtualenv django-colorinput
-    $ cd django-colorinput/
-    $ python setup.py develop
-
+3. Create a virtualenv for your local copy and install (at least) `tox` into
+   it, so you can run all tests locally. If you use `pyenv`, I would recommend
+   also installing `tox-pyenv` and using `pyenv local` to set additional
+   interpreters, one for each version specified in `envlist` in `tox.ini`.
 4. Create a branch for local development::
 
     $ git checkout -b name-of-your-bugfix-or-feature
